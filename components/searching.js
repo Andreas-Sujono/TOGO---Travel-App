@@ -26,7 +26,7 @@ class Searching extends Component {
         console.log(this.state.search)
         
         
-        latLonUrl = `https://us1.locationiq.com/v1/search.php?key=4bd5fa8468e516&q=${this.state.search}&format=json`
+        latLonUrl = `https://us1.locationiq.com/v1/search.php?key=<key>&q=${this.state.search}&format=json`
         console.log(latLonUrl)
         
         fetch(latLonUrl)
@@ -40,7 +40,7 @@ class Searching extends Component {
         }))
         
         .then( () => {
-            fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat},${this.state.lon}&radius=500&type=*&keyword=restaurant&key=AIzaSyBYgx2skouDE13VZOcc6rOfK7GgjePVGxs`)
+            fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat},${this.state.lon}&radius=500&type=*&keyword=restaurant&key=<key>`)
             .then(response => response.json())
             .then( response => this.setState({content:response.results}))
             .then( () => {
